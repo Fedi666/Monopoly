@@ -1,0 +1,254 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdbool.h>
+
+#define MAX_JOUEURS 8
+#define NUM_CASES 40
+#define MAX_LINE_LENGTH 100
+
+typedef struct {
+    int id;            
+    char name[50];       
+    char type[20];     
+    int price;          
+    int rent;            
+    int owner;           
+} Case;
+
+typedef struct {
+    Case cases[NUM_CASES];
+} Board;
+
+typedef struct {
+    int id;
+    char nom[50];   
+    int argent;  
+    int nbtour;       
+    int position;       
+    int enPrison; 
+    int nbpropriete;  
+    int proprietes[28];  
+    int maisons;          
+    int hotels;           
+} Joueur;
+
+typedef struct {
+    Case cases;
+    int nbmaisons;
+    int nbhotels;
+    float prixmaison;
+    float prixhotels;
+} Propriete;
+
+void loadBoardFromFile(Board *board, const char *filename) {
+    FILE *file = fopen(filename, "r");
+    if (file == NULL) {
+        printf("Erreur : Impossible d'ouvrir le fichier %s.\n", filename);
+        exit(1);
+    }
+
+    char line[MAX_LINE_LENGTH];
+    int index = 0;
+
+    while (fgets(line, sizeof(line), file) && index < NUM_CASES) {
+        sscanf(line, "%d,%49[^,],%19[^,],%d,%d,%d",
+               &board->cases[index].id,
+               board->cases[index].name,
+               board->cases[index].type,
+               &board->cases[index].price,
+               &board->cases[index].rent,
+               &board->cases[index].owner);
+        index++;
+    }
+
+    fclose(file);
+}
+
+void displayBoard(Board *board) {
+    printf("### Informations du Plateau ###\n");
+    int i;
+    for (i = 0; i < NUM_CASES; i++) {
+        printf("Case %d: %s [%s] - Prix: %d, Loyer: %d, Propriétaire: %d\n",
+               board->cases[i].id,
+               board->cases[i].name,
+               board->cases[i].type,
+               board->cases[i].price,
+               board->cases[i].rent,
+               board->cases[i].owner);
+    }
+}
+
+void initialiserJoueurs(Joueur joueurs[], int *nbJoueurs) {
+    printf("Entrez le nombre de joueurs (2 à %d) : ", MAX_JOUEURS);
+    scanf("%d", nbJoueurs);
+
+    while (*nbJoueurs < 2 || *nbJoueurs > MAX_JOUEURS) {
+        printf("Nombre invalide. Entrez un nombre entre 2 et %d : ", MAX_JOUEURS);
+        scanf("%d", nbJoueurs);
+    }
+   int i;
+    for ( i = 0; i < *nbJoueurs; i++) {
+        printf("Entrez le nom du joueur %d : ", i + 1);
+        scanf("%s", joueurs[i].nom);
+        joueurs[i].argent = 1500;      
+        joueurs[i].position = 0; 
+        joueurs[i].nbtour = 0;     
+        joueurs[i].enPrison = 0;     
+        joueurs[i].maisons = 0;        
+        joueurs[i].hotels = 0;         
+       int j;
+        for ( j = 0; j < 28; j++) {
+            joueurs[i].proprietes[j] = -1;
+        }
+
+        printf("Joueur %s initialisé avec %d unités d'argent.\n", joueurs[i].nom, joueurs[i].argent);
+    }
+}
+
+void displayJoueurs(Joueur *joueur, int nbjoueur) {
+	int i;
+    for ( i = 0; i < nbjoueur; i++) {
+        printf("Le joueur: %s, à la position: %d, a %d unités d'argent, et possède %d propriété(s)\n", 
+               joueur[i].nom, joueur[i].position, joueur[i].argent, joueur[i].nbpropriete);
+    }
+}
+
+int calculerLoyer(Propriete *p) {
+    int loyer = p->cases.rent;
+    if (p->cases.owner != -1) {
+        loyer += (int)(p->cases.rent * (p->nbhotels * 0.8)) + (int)(p->cases.rent * (p->nbmaisons * 0.5));
+    }
+    return loyer;
+}
+
+bool acheterPropriete(Propriete *p, Joueur *j) {
+    if (j->nbtour == 0) {
+        printf("Vous n'avez pas le droit d'acheter cette propriété.\n");
+        return false;
+    }
+
+    if (p->cases.owner != -1) {
+        printf("La propriété %s est déjà achetée par un autre joueur.\n", p->cases.name);
+        return false;
+    }
+
+    if (j->argent < p->cases.price) {
+        printf("Le joueur %s n'a pas assez d'argent.\n", j->nom);
+        return false;
+    }
+
+    j->argent -= p->cases.price;
+    p->cases.owner = j->id;
+    printf("Félicitations ! Le joueur %s a acheté %s. Il vous reste %d.\n", j->nom, p->cases.name, j->argent);
+    
+    if (j->nbpropriete < 28) {
+        j->nbpropriete++;
+    } else {
+        printf("Le joueur %s ne peut pas posséder plus de 28 propriétés.\n", j->nom);
+    }
+
+    return true;
+}
+
+bool payerloyer(Propriete *p, Joueur *j) {
+    if (p->cases.owner == -1 || p->cases.owner == j->id) {
+        printf("Cette propriété ne nécessite pas un paiement.\n");
+        return false;
+    }
+
+    if (p->cases.rent > j->argent) {
+        printf("Le joueur %s n'a pas assez d'argent.\n", j->nom);
+        return false;
+    } else {
+    	int loyer;
+    	loyer=calculerLoyer(p);
+        j->argent -= loyer;
+        printf("Le joueur %s a payé un loyer de %d.\n", j->nom, loyer);
+        return true;
+    }
+}
+
+bool achetermaison(Propriete *p, Joueur *j, int nb) {
+    if (p->cases.owner != j->id) {
+        printf("Vous n'avez pas le droit d'acheter cette propriété.\n");
+        return false;
+    }
+
+    if (p->nbmaisons == 4 || p->nbmaisons + nb > 4) {
+        printf("Vous ne pouvez pas avoir plus de 4 maisons pour une même propriété.\n");
+        return false;
+    }
+
+    int prix = p->prixmaison * nb;
+    if (j->argent < prix) {
+        printf("Le joueur %s n'a pas assez d'argent.\n", j->nom);
+        return false;
+    }
+
+    j->argent -= prix;
+    p->nbmaisons += nb;
+    j->maisons += nb;
+    printf("Le joueur %s a acheté %d maison(s) sur %s. Il vous reste %d.\n", j->nom, nb, p->cases.name, j->argent);
+
+    return true;
+}
+
+bool acheterhotel(Propriete *p, Joueur *j, int nb) {
+    if (p->cases.owner != j->id) {
+        printf("Vous n'avez pas le droit d'acheter cette propriété.\n");
+        return false;
+    }
+
+    if (p->nbmaisons < 4) {
+        printf("Vous devez d'abord avoir 4 maisons avant d'acheter un hôtel.\n");
+        return false;
+    }
+
+    if (p->nbhotels == 4 || p->nbhotels + nb > 4) {
+        printf("Vous ne pouvez pas avoir plus de 4 hôtels pour une même propriété.\n");
+        return false;
+    }
+
+    int prix = p->prixhotels * nb;
+    if (j->argent < prix) {
+        printf("Le joueur %s n'a pas assez d'argent.\n", j->nom);
+        return false;
+    }
+
+    j->argent -= prix;
+    p->nbhotels += nb;
+    j->hotels += nb;
+    printf("Le joueur %s a acheté %d hôtel(s). Il vous reste %d.\n", j->nom, nb, j->argent);
+
+    return true;
+}
+
+int main() {
+    
+    Joueur joueurs[MAX_JOUEURS];
+    int nbJoueurs = 2;
+
+    joueurs[0] = (Joueur){1, "Alice", 1500, 1, 0, 0, 0, {}, 0, 0};
+    joueurs[1] = (Joueur){2, "Bob", 1500, 1, 0, 0, 0, {}, 0, 0};
+
+    Propriete propriete1 = {{0, "Rue de la Paix", "propriete", 400, 50, -1}, 0, 0, 50.0, 100.0};
+
+    displayJoueurs(joueurs, nbJoueurs);
+    printf("--------------------------------\n");
+printf("Loyer calculé : %d \n", calculerLoyer(&propriete1));
+    acheterPropriete(&propriete1, &joueurs[0]);
+    printf("--------------------------------\n");
+
+    achetermaison(&propriete1, &joueurs[0], 2);
+    printf("--------------------------------\n");
+
+    acheterhotel(&propriete1, &joueurs[0], 1);
+    printf("--------------------------------\n");
+
+    payerloyer(&propriete1, &joueurs[1]);
+    printf("--------------------------------\n");
+
+    displayJoueurs(joueurs, nbJoueurs);
+    return 0;
+}

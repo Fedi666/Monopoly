@@ -1,0 +1,219 @@
+<head>
+    <meta charset="utf-8" />
+    <title>Monopoly</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ url_for('static', filename='gamestyle.css') }}" />
+</head>
+<body>
+    <div class="responsive">
+        <div class="mainSquare">
+            <div class="row bottom">
+                <div class="square2"><span class="corner corner2">go to<br />jail</span></div>
+                <div class="square1">
+                    <div class="header header-bottom red"></div>
+                    <div class="firstLine firstLine-bottom rotation2"></div>
+                </div>
+                <div class="square1">					
+                    <div class="firstLine firstLine-bottom no-color rotation2"></div>
+                </div>
+                <div class="square1">
+                    <div class="header header-bottom red"></div>
+                    <div class="firstLine firstLine-bottom rotation2"></div>
+                </div>
+                <div class="square1">
+                    <div class="header header-bottom red"></div>
+                    <div class="firstLine firstLine-bottom rotation2"></div>
+                </div>
+                <div class="square1">
+                    <div class="firstLine firstLine-bottom no-color rotation2"></div>
+                </div>
+                <div class="square1">
+                    <div class="header header-bottom yellow"></div>
+                    <div class="firstLine firstLine-bottom rotation2"></div>
+                </div>
+                <div class="square1">
+                    <div class="header header-bottom yellow"></div>
+                    <div class="firstLine firstLine-bottom rotation2"></div>
+                </div>
+                <div class="square1">					
+                    <div class="firstLine firstLine-bottom no-color rotation2"></div>
+                </div>
+                <div class="square1">
+                    <div class="header header-bottom yellow"></div>
+                    <div class="firstLine firstLine-bottom rotation2"></div>
+                </div>
+                <div class="square2"><span class="corner corner1">free <br /> parking</span></div>
+            </div>
+            
+            <div class="row center">
+                <div class="square2">
+                    <div class="squareSide">
+                        <div class="headerSide header-right orange"></div>
+                        <div class="firstLine firstLine-right rotation1"></div>
+                    </div>
+                    <div class="squareSide">
+                        <div class="headerSide header-right orange"></div>
+                        <div class="firstLine firstLine-right rotation1"></div>
+                    </div>
+                    <div class="squareSide">						
+                        <div class="firstLine firstLine-right no-color rotation1"></div>
+                    </div>
+                    <div class="squareSide">
+                        <div class="headerSide header-right orange"></div>
+                        <div class="firstLine firstLine-right rotation1"></div>
+                    </div>
+                    <div class="squareSide">						
+                        <div class="firstLine firstLine-right no-color rotation1"></div>
+                    </div>
+                    <div class="squareSide">
+                        <div class="headerSide header-right purple"></div>
+                        <div class="firstLine firstLine-right rotation1"></div>
+                    </div>
+                    <div class="squareSide">
+                        <div class="headerSide header-right purple"></div>
+                        <div class="firstLine firstLine-right rotation1"></div>
+                    </div>
+                    <div class="squareSide">						
+                        <div class="firstLine firstLine-right no-color rotation1"></div>
+                    </div>
+                    <div class="squareSide">
+                        <div class="headerSide header-right purple"></div>
+                        <div class="firstLine firstLine-right rotation1"></div>
+                    </div>
+                </div>
+                <div class="square9">
+                    <div class="card-box card-blue">
+                        <div class="card-blue-inside"></div>
+                    </div>
+                    <div class="logoBox">
+                        <span class="logoName">monopoly</span>
+                    </div>
+                    <div class="card-box card-orange">
+                        <div class="card-orange-inside"></div>						
+                    </div>
+                </div>
+                <div class="square2">
+                    <div class="squareSide">
+                        <div class="headerSide header-left green"></div>
+                        <div class="firstLine firstLine-left rotation3"></div>
+                    </div>
+                    <div class="squareSide">
+                        <div class="headerSide header-left green"></div>
+                        <div class="firstLine firstLine-left rotation3"></div>
+                    </div>
+                    <div class="squareSide">						
+                        <div class="firstLine firstLine-left no-color rotation3"></div>
+                    </div>
+                    <div class="squareSide">
+                        <div class="headerSide header-left green"></div>
+                        <div class="firstLine firstLine-left rotation3"></div>
+                    </div>
+                    <div class="squareSide">						
+                        <div class="firstLine firstLine-left no-color rotation3"></div>
+                    </div>
+                    <div class="squareSide">
+                        <div class="firstLine firstLine-left no-color rotation3"></div>
+                    </div>
+                    <div class="squareSide">						
+                        <div class="headerSide header-left blue"></div>
+                        <div class="firstLine firstLine-left rotation3"></div>
+                    </div>
+                    <div class="squareSide">						
+                        <div class="firstLine firstLine-left no-color rotation3"></div>
+                    </div>
+                    <div class="squareSide">
+                        <div class="headerSide header-left blue"></div>
+                        <div class="firstLine firstLine-left rotation3"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row top">
+                <div class="square2">
+                    <span class="corner4-left">just</span>
+                    <div class="squareCorner">
+                        <span class="corner corner4">in <br />jail</span>
+                    </div>
+                    <span class="corner4-bottom">visiting</span>
+                </div>
+                <div class="square1">
+                    <div class="header header-top lightblue"></div>
+                    <div class="firstLine firstLine-top"></div>
+                </div>
+                <div class="square1">
+                    <div class="header header-top lightblue"></div>
+                    <div class="firstLine firstLine-top"></div>
+                </div>
+                <div class="square1">
+                    <div class="firstLine firstLine-top no-color"></div>
+                </div>
+                <div class="square1">
+                    <div class="header header-top lightblue"></div>
+                    <div class="firstLine firstLine-top"></div>
+                </div>
+                <div class="square1">					
+                    <div class="firstLine firstLine-top no-color"></div>
+                </div>
+                <div class="square1">
+                    <div class="firstLine firstLine-top no-color"></div>
+                </div>
+                <div class="square1">
+                    <div class="header header-top brown"></div>
+                    <div class="firstLine firstLine-top"></div>
+                </div>
+                <div class="square1">
+                    <div class="firstLine firstLine-top no-color"></div>
+                </div>
+                <div class="square2">
+                    <span class="corner corner3"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        async function loadBoard() {
+            try {
+                const response = await fetch('/static/board.txt');
+                const data = await response.text();
+                const cases = parseBoardData(data);
+                updateBoard(cases);
+            } catch (error) {
+                console.error('Erreur lors du chargement du fichier:', error);
+            }
+        }
+
+        function parseBoardData(data) {
+            const lines = data.split('\n');
+            const cases = [];
+
+            for (const line of lines) {
+                const parts = line.split(',');
+                if (parts.length === 6) {
+                    const caseData = {
+                        id: parseInt(parts[0].trim()),
+                        name: parts[1].trim(),
+                        type: parts[2].trim(),
+                        price: parseInt(parts[3].trim()),
+                        rent: parseInt(parts[4].trim()),
+                        owner: parseInt(parts[5].trim()),
+                    };
+                    cases.push(caseData);
+                }
+            }
+            return cases;
+        }
+
+        function updateBoard(cases) {
+            const squareElements = document.querySelectorAll('.firstLine');
+            
+            cases.forEach((caseData, index) => {
+                if (squareElements[index]) {
+                    squareElements[index].textContent = caseData.name;
+                }
+            });
+        }
+        
+        window.onload = loadBoard;
+    </script>
+</body>

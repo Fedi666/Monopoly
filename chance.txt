@@ -1,0 +1,14 @@
+0,Avancez jusqu'à la case Départ. (Recevez 200 Dinars.)
+1,La banque vous verse un dividende de 150 Dinars.
+2,Paiement pour réparations : perdez 100 Dinars.
+3,Avancez de trois cases.
+4,Allez en prison. Ne passez pas par la case Départ.
+5,Gagnez 50 Dinars grâce à un concours.
+6,Perdez 50 Dinars pour excès de vitesse.
+7,Reculez de trois cases.
+8,Gagnez 100 Dinars en retour d'impôts.
+9,Paiement de 150 Dinars pour frais médicaux.
+10,Recevez 25 Dinars de chaque joueur.
+11,Gagnez 75 Dinars à la loterie.
+12,Paiement d'une amende de 200 Dinars.
+13,Recevez 200 Dinars en héritage.

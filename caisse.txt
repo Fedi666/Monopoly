@@ -1,0 +1,15 @@
+0,Carte Caisse de communauté : Avancez à la case Départ (Collectez 200 Dinars
+1,Carte Caisse de communauté : Erreur bancaire en votre faveur. Recevez 200 Dinars
+2,Carte Caisse de communauté : Frais du médecin. Payez 50 Dinars
+3,Carte Caisse de communauté : Vous vendez des actions et gagnez 50 Dinars
+4,Carte Caisse de communauté : Sortez de prison gratuitement
+5,Carte Caisse de communauté : Allez en prison. Ne passez pas par la case Départ, ne collectez pas 200 Dinars
+6,Carte Caisse de communauté : C'est votre anniversaire. Collectez 100 Dinars de chaque joueur
+7,Carte Caisse de communauté : Assurance vie arrivée à échéance. Recevez 100 Dinars
+8,Carte Caisse de communauté : Frais d'hospitalisation. Payez 50 Dinars
+9,Carte Caisse de communauté : Payez les frais de scolarité de 150 Dinars
+10,Carte Caisse de communauté : Vous recevez des honoraires de consultation de 25 Dinars
+11,Carte Caisse de communauté : Vous avez gagné le deuxième prix d'un concours de beauté. Recevez 100 Dinars
+12,Carte Caisse de communauté : Vous héritez de 100 Dinars
+13,Carte Caisse de communauté : Collectez 50 Dinars pour une soirée à l'opéra
+14,Carte Caisse de communauté : Vous êtes évalué pour des réparations de rue. Payez 40 Dinars par maison et 115 Dinars par hôtel

@@ -1,0 +1,40 @@
+0,  Départ Collect 200.000,Départ,0,0,-1
+1,Rue 9 Avirl 1938,Propriete,60,2,-1
+2,Caisse de Communauté,Caisse,0,0,-1
+3,Rue Amilcar,Propriete,60,4,-1
+4,Impôt sur le revenu,Taxe,0,200,-1
+5,Gare Tunis,Gare,200,25,-1
+6,Rue Anter,Propriete,100,6,-1
+7,Chance,Chance,0,0,-1
+8,Rue Aneba,Propriete,100,6,-1
+9,Avenue de la République,Propriete,120,8,-1
+10,Prison,Prison,0,0,-1
+11,Rue Mohamed Khames,Propriete,150,10,-1
+12,STEG,Service Public,0,0,-1
+13,Rue Hedi Chaker,Propriete,180,12,-1
+14,Rue Ibn Kholdoun,Propriete,200,14,-1
+15,Gare Sousse,Gare,200,25,-1
+16,Rue Ahmed Telili,Propriete,220,16,-1
+17,Caisse de Communauté,Caisse,0,0,-1
+18,Rue Ali Balhawen,Propriete,240,18,-1
+19,Place d'Afrique,Propriete,260,20,-1
+20, Free Parc,Gratuit,0,0,-1
+21,Place Djakarta,Propriete,280,22,-1
+22,Chance,Chance,0,0,-1
+23,Rue Carthage,Propriete,300,24,-1
+24,Rue Farhat Hached,Propriete,320,26,-1
+25,Gare Sfax,Gare,200,25,-1
+26,Rue Beb Bnet,Propriete,350,28,-1
+27,Place Mohamed Ali,Propriete,380,30,-1
+28,SONED,Service Public,0,0,-1
+29,Beb Suika,Propriete,400,35,-1
+30,Go to jail,Prison,0,0,-1
+31,Rue Liberté,Propriete,420,40,-1
+32,Rue Palestine,Propriete,440,42,-1
+33,Caisse de Communauté,Caisse,0,0,-1
+34,Rue 20 Mars,Propriete,460,44,-1
+35,Gare de Gabes,Gare,200,25,-1
+36,Chance,Chance,0,0,-1
+37,Rue Khayer Din Becha,Propriete,480,46,-1
+38,Impôt de richesse,Taxe,0,100,-1
+39,Rue Habib Bourguiba,Propriete,500,50,-1
